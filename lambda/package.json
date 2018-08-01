@@ -1,7 +1,7 @@
 {
-  "name": "DecisionTree",
+  "name": "book-cruise",
   "version": "2.0.0",
-  "description": "Alexa Decision Tree template",
+  "description": "book a cruise",
   "main": "index.js",
   "dependencies": {
     "ask-sdk-core": "^2.0.0",

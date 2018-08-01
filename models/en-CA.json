@@ -1,0 +1,199 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "expedia",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "BookCruise",
+                  "slots": [
+                      {
+                          "name": "Destination",
+                          "type": "CruiseDestinationTypeValues",
+                          "samples": [
+                              "{Destination}"
+                          ]
+                      },
+                      {
+                          "name": "Date",
+                          "type": "AMAZON.DATE",
+                          "samples": [
+                              "{Date}"
+                          ]
+                      },
+                      {
+                          "name": "CruiseLine",
+                          "type": "CruiseLineTypeValues",
+                          "samples": [
+                              "{CruiseLine}"
+                          ]
+                      },
+                      {
+                          "name": "StateRoom",
+                          "type": "StateRoomTypeValues",
+                          "samples": [
+                              "{StateRoom}"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "book a cruise"
+                  ]
+              }
+          ],
+          "types": [
+              {
+                  "name": "CruiseLineTypeValues",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "Royal"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "Princess"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "Norwegian"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "CruiseDestinationTypeValues",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "Alaska"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "Caribbean"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "StateRoomTypeValues",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "Suite"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "Balcony"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "Inside"
+                          }
+                      }
+                  ]
+              }
+          ]
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "BookCruise",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "Destination",
+                          "type": "CruiseDestinationTypeValues",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Intent-BookCruise.IntentSlot-Destination"
+                          }
+                      },
+                      {
+                          "name": "Date",
+                          "type": "AMAZON.DATE",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Intent-BookCruise.IntentSlot-Date"
+                          }
+                      },
+                      {
+                          "name": "CruiseLine",
+                          "type": "CruiseLineTypeValues",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Intent-BookCruise.IntentSlot-CruiseLine"
+                          }
+                      },
+                      {
+                          "name": "StateRoom",
+                          "type": "StateRoomTypeValues",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Intent-BookCruise.IntentSlot-StateRoom"
+                          }
+                      }
+                  ]
+              }
+          ]
+      },
+      "prompts": [
+          {
+              "id": "Elicit.Intent-BookCruise.IntentSlot-CruiseLine",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Preferred cruise line, Princess, Royal or Norwegian?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Intent-BookCruise.IntentSlot-Date",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "When?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Intent-BookCruise.IntentSlot-Destination",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Where do you want to go, Caribbean or Alaska?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Intent-BookCruise.IntentSlot-StateRoom",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "What type of room do you like, inside, balcony or suite?"
+                  }
+              ]
+          }
+      ]
+  }
+}

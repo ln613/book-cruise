@@ -2,20 +2,17 @@
   "manifest": {
     "publishingInformation": {
       "locales": {
-        "en-US": {
-          "summary": "Answer questions to hear a suggested career.",
+        "en-CA": {
+          "summary": "book a cruise",
           "examplePhrases": [
-            "Alexa open decision tree",
-            "Alexa ask decision tree to start over",
-            "Alexa tell decision tree restart"
+            "Alexa open book a cruise"
           ],
           "keywords": [
-            "career",
-            "job",
-            "decision"
+            "cruise",
+            "book"
           ],
-          "name": "Decision Tree",
-          "description": "Ask Decision Tree for help choosing your ideal career.\n\nAlexa will provide an ideal career by asking a series of questions and giving you an answer.\n\nTo start, just say \"Alexa, launch Decision Tree\" or \"Alexa, open Decision Tree\" to get started\".\n\nAt any time, you can stop by saying \"Alexa, stop\""
+          "name": "book a cruise",
+          "description": "book a cruise"
         }
       },
       "isAvailableWorldwide": true,
@@ -26,7 +23,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "sourceDir": "lambda/custom"
+          "sourceDir": "lambda"
         }
       }
     },
