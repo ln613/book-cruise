@@ -1,5 +1,6 @@
 const Alexa = require('ask-sdk-core');
-
+const sendmail = require('sendmail')();
+ 
 const handler = {
   canHandle(handlerInput) {
     return true;
@@ -12,10 +13,21 @@ const handler = {
     const res = handlerInput.responseBuilder;
     
     if (type === 'IntentRequest' && intent.name === 'BookCruise') {
-      return (Object.keys(slots).some(s => !slots[s].value)
-        ? res.addDelegateDirective(intent)
-        : res.speak(`A ${slots.CruiseLine.value} cruise to ${slots.Destination.value} on ${slots.Date.value} with ${slots.StateRoom.value} cabin has been booked for you.`))
-        .getResponse();
+      if (Object.keys(slots).some(s => !slots[s].value)) {
+        return res.addDelegateDirective(intent).getResponse();
+      } else {
+        const s = `A ${slots.CruiseLine.value} cruise to ${slots.Destination.value} on ${slots.Date.value} with ${slots.StateRoom.value} cabin has been booked for you.`;
+        sendmail({
+          from: 'nan@alexa.com',
+          to: 'a-nli2@expedia.com',
+          subject: 'Cruise Booking by Alexa',
+          html: s,
+        }, function(err, reply) {
+          console.log(err && err.stack);
+          console.dir(reply);
+        });
+        return res.speak(s).getResponse();
+      }
     }
   },
 };

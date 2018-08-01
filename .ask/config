@@ -26,12 +26,12 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "83153e05-343e-41ca-a833-95580147251b"
+            "revisionId": "65380bbf-ed0c-47ff-8230-a9c0831dc8f3"
           }
         ],
         "interactionModel": {
           "en-CA": {
-            "eTag": "8fc6af0fad837b883b38bbabdeb37694"
+            "eTag": "5051cc69cc7d402b4f56d19d75dc58d1"
           }
         }
       }
